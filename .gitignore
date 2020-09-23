@@ -1,5 +1,5 @@
 __pycache__
 .vscode
-staticfiles
-Template.html
+static
+Template.*
 test.py

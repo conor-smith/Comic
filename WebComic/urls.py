@@ -4,5 +4,5 @@ from . import views
 
 app_name = "WebComic"
 urlpatterns = [
-    path("", views.test_page, name="test_page")
+    path("", views.index, name="index")
 ]
