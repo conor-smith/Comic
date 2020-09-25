@@ -30,4 +30,4 @@ def comic_page(request, id):
 
 def archive(request):
     context = {"comics_list": Comic.objects.order_by('-pub_date')}
-    return render(request("index.html"), context)
+    return render(request, "archive.html", context)

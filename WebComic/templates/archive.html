@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{{ comic.title }}</title>
+</head>
+
+<body>
+  <ul>
+  {% for comic in comics_list %}
+    <li><a href="http://localhost/comic/{{ comic.id }}">{{ comic.title }}</a></li>
+  {% endfor %}
+  </ul>
+</body>
+</html>
