@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Front page</title>
+  <title>{{ comic.title }}</title>
 </head>
 
 <body>
   <h1>{{ comic.title }}</h1>
-  <img src="static/images/{{ comic.URI }}" alt="{{ comic.alt_text }}">
+  <img src="http://localhost/static/images/{{ comic.URI }}" alt="{{ comic.URI }}" title="{{ comic.alt_text }}">
+  {% if prev %}
+  <a href="http://localhost/comic/{{ prev.id }}">previous</a>
+  {% endif %}
+  {% if next %}
+  <a href="http://localhost/comic/{{ next.id }}">next</a>
+  {% endif %}
 </body>
 </html>
