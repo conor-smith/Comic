@@ -2,16 +2,45 @@
 <html lang="en">
 <head>
   <title>{{ comic.title }}</title>
+  <meta charset="utf-8"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
-<body>
-  <h1>{{ comic.title }}</h1>
-  <img src="http://localhost/static/images/{{ comic.URI }}" alt="{{ comic.URI }}" title="{{ comic.alt_text }}">
-  {% if prev %}
-  <a href="http://localhost/comic/{{ prev.id }}">previous</a>
-  {% endif %}
-  {% if next %}
-  <a href="http://localhost/comic/{{ next.id }}">next</a>
-  {% endif %}
+<body class="bg-info">
+
+  <div class="container bg-light" style="margin-top:30px">
+    <div class="row">
+      <div class="col-md">
+        <p>{{ comic.title }}</p>
+        <img src="/static/images/{{ comic.URI }}" alt="{{ comic.URI }}" title="{{ comic.alt_text }}"/>
+      </div>
+    </div>
+    <div class="row">
+      {% if prev %}
+      <div class="col-md-2 text-center">
+        <a href="{% url 'WebComic:comic_page' 1 %}">First</a>
+      </div><div class="col-md-2 text-center">
+        <a href="{% url 'WebComic:comic_page' prev.id %}">Previous</a>
+      </div>
+      {% else %}
+        <div class="col-md-4"></div>
+      {% endif %}
+      <div class="col-md-4"></div>
+      {% if next %}
+      <div class="col-md-2 text-center">
+        <a href="{% url 'WebComic:comic_page' next.id %}">Next</a>
+      </div><div class="col-md-2 text-center">
+        <a href="{% url 'WebComic:index' %}">Last</a>
+      </div>
+      {% else %}
+      <div class="col-md-4"></div>
+      {% endif %}
+    </div>
+    <div class="row">
+      <a href="{% url 'WebComic:archive' %}">Archive</a>
+    </div>
+  </div>
 </body>
 </html>

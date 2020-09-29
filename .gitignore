@@ -1,8 +1,7 @@
 __pycache__
 .vscode
-static/*
+static/images
 Template.*
 test.py
 migrations
 db.sqlite3
-!static/admin
