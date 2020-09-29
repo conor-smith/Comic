@@ -17,6 +17,8 @@ def get_comics(comic_id):
     if comic_id > 1:
         context['prev'] = Comic.objects.get(id=comic_id-1)
 
+    context['title'] = context['comic'].title
+
     return context
     
 
@@ -29,5 +31,8 @@ def comic_page(request, id):
     return render(request, 'index.html', context)
 
 def archive(request):
-    context = {"comics_list": Comic.objects.order_by('-pub_date')}
+    context = {
+        "comics_list":  Comic.objects.order_by('-pub_date'),
+        'title':        'Archive'
+        }
     return render(request, "archive.html", context)
